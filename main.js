@@ -63,6 +63,6 @@ function removeItem(itemName) {
     showItemsList()
 }
 
-function addHidewarningClass () {
+function addHideWarningClass () {
     document.querySelector(".warning").classList.add("hide-warning")
 }
