@@ -23,19 +23,25 @@ function showItemsList() {
         sectionList.innerHTML += `
            <div class="item">
                 <div>
-                    <input type="checkbox" name="list" id="item-${index}">
-                    <div class="custom-checkbox">
+                    <input type="checkbox" name="list" id="item-${index}" ${item.checked && "checked"}>
+                    <div class="custom-checkbox" onclick="checkItem('${item.name}')">
                         <img src="./assets/assets/checked.svg" alt="checked">
                     </div>
-                    <label for="item-${index}">${item.name}</label>
+                    <label for="item-${index}" onclick="checkItem('${item.name}')">${item.name}</label>
                 </div>
 
-                <button.onclick="removeItem('${item.name}')">
+                <button onclick="removeItem('${item.name}')">
                     <img src="./assets/assets/trash-icon.svg" alt="trash icon">
-                </button.onclick=>
+                </button>
             </div>
         `
     })
+}
+
+function checkItem(itemName) {
+    const item = items.find((item) => item.name === itemName)
+    item.checked = !item.checked
+    showItemsList()
 }
 
 function removeItem(itemName) {
